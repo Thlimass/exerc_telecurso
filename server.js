@@ -1,11 +1,14 @@
+const dotenv = require("dotenv");
 const express = require("express");
 
 const app = express();
 
-app.listen(5000, function (erro){
-    if(erro){
-        console.log('Ocorreu um erro!');
-    }else{
-        console.log('Servidor iniciado com sucesso!');
-    }
+app.get('/', (req, res) => {
+    res.send("olá Mundo!")
 })
+
+
+dotenv.config();
+app.listen(process.env.PORT, function (){
+    console.log(`Server executado com sucesso na porta ${process.env.PORT}`)
+});
